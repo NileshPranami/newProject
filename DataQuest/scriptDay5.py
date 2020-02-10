@@ -21,3 +21,17 @@ pop_millions = [
 
 for country in pop_millions:
     print("The population of {} is {:,.2f} million".format(country[0],country[1]))
+
+import csv
+frequency_tbl = {}
+with open('artworks_clean.csv','r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        gender = row[5]
+        if gender not in frequency_tbl:
+            frequency_tbl[gender] = 1
+        else:
+            frequency_tbl[gender] +=1
+
+for gen, val in frequency_tbl.items():
+    print("There are {:,} artworks by {} artists".format(val,gen))
