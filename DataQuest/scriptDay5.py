@@ -5,3 +5,8 @@ for item in moma:
         artist_freq[artist] = 1
     else:
         artist_freq[artist] += 1
+
+def artist_summary(name):
+    count = artist_freq[name]
+    print("There are {} artworks by {} in the data set".format(count,name))
+artist_summary("Henri Matisse")
