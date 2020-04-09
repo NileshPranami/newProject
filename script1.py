@@ -21,10 +21,10 @@ def maxn(list1, N):
     final_list = [] 
   
     for i in range(0, N):  
-        max1 = 0
+        max1 = (0,0)
           
         for j in range(len(list1)):      
-            if list1[j] > max1: 
+            if list1[j][0] > max1[0]: 
                 max1 = list1[j]; 
                   
         list1.remove(max1); 
@@ -57,7 +57,8 @@ with open(filepath) as fp:
 				#model.init_sims(replace=True)  # Normalizes the vectors in the word2vec class.
 				#distance = model.wmdistance(sentence_obama, sentence_president)
 				# f5.write('\t'+ str(distance))
-				result.append(distance)
+				tu = (distance,cnt1)
+				result.append(tu)
 
 				print("Line {}: {}".format(cnt, line))
 				print("Line {}: {}".format(cnt1, line1))
