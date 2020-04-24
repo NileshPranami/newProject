@@ -5,6 +5,38 @@ import pandas.util.testing as tm
 import seaborn as sns
 from jedi.refactoring import inline
 
+
+
+""" 1. Define Project class (variables ,constructor and function ) code here in the below space as per the requirement"""
+class Project:
+    def __init__(self, projectId, projectName, manHours, technologyList):
+        self.projectId = projectId
+        self.projectName = projectName
+        self.manHours = manHours
+        self.technologyList = technologyList
+        avgProjCost = 0
+    def calculateProjCost(self, ratePH):
+        projectCost = self.manHours*ratePH
+        return projectCost
+
+""" 2. Define Organization class( Variables,Constructor and function) code here in the below space as per requirement """
+
+class Organization:
+    def __init__(self, orgName, ProjList):
+        self.orgName = orgName
+        self.ProjList = ProjList
+
+    def projAvgCostByTechnology(self, projId, rate):
+        for value in self.ProjList:
+            if value.projectId == projId:
+                value.avgProjCost = (value.calculateProjCost(rate)
+                /len(value.technologyList))
+                return value
+        else:
+            return None
+
+
+
 advertising = pd.read_csv('tvmarketing.csv')
 # %matplotlib inline
 # sns.pairplot(advertising, x_vars=['TV'], y_vars='Sales', height=7, aspect=0.7, kind='scatter')
