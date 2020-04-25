@@ -52,3 +52,21 @@ plt.plot(c,y_pred, color = 'red', linewidth = 2.5, linestyle = '-')
 fig.suptitle('Actual and Predicted', fontsize = 20)
 plt.xlabel('Index', fontsize = 18)
 plt.ylabel('Sales', fontsize = 16)
+# plt.show()
+
+# Error terms
+c = [i for i in range(1,61,1)]
+fig = plt.figure()
+plt.plot(c,y_test-y_pred, color = 'blue',linewidth = 2.3, linestyle = '-')
+fig.suptitle('Error Terms', fontsize = 20)
+plt.xlabel('Index', fontsize = 18)
+plt.ylabel('ytest-ypred', fontsize = 16)
+# plt.show()
+
+from sklearn.metrics import mean_squared_error, r2_score
+mse = mean_squared_error(y_test, y_pred)
+r_squared = r2_score(y_test,y_pred)
+
+print('Mean Square Error :' , mse)
+print('r square value :',r_squared)
+
